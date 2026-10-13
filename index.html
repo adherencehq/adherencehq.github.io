@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adherence: check your code against your compliance policies</title>
+  <meta name="description" content="Adherence matches each requirement in your compliance policies to the code that implements it, and produces a signed evidence pack for your auditors.">
+  <style>
+    :root {
+      --bg: #ffffff; --surface: #f6f7f9; --text: #15181d; --muted: #5a6270;
+      --line: #e3e6eb; --accent: #1f4fd1; --accent-text: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111317; --surface: #191c22; --text: #e8eaee; --muted: #9aa2af;
+        --line: #2a2e36; --accent: #7a9cff; --accent-text: #0d1020;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 700; letter-spacing: -0.01em; }
+    a { color: var(--accent); }
+    .button {
+      display: inline-block; background: var(--accent); color: var(--accent-text);
+      padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600;
+    }
+    .hero { padding: 72px 0 56px; }
+    h1 { font-size: clamp(32px, 5vw, 46px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 18px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+    section { padding: 48px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 26px; letter-spacing: -0.01em; margin: 0 0 18px; }
+    h3 { font-size: 18px; margin: 0 0 6px; }
+    p { margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+    .steps { display: grid; gap: 14px; grid-template-columns: 1fr; counter-reset: step; }
+    @media (min-width: 560px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 820px) { .steps { grid-template-columns: repeat(4, 1fr); } .steps .card { padding: 16px; } .steps .card p { font-size: 15px; } }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+    .steps .card::before {
+      counter-increment: step; content: counter(step);
+      display: inline-grid; place-items: center; width: 28px; height: 28px; margin-bottom: 10px;
+      border-radius: 50%; background: var(--accent); color: var(--accent-text); font-weight: 700; font-size: 15px;
+    }
+    ul.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    ul.plain li { padding-left: 26px; position: relative; }
+    ul.plain li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .contact { text-align: center; padding: 64px 0; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="brand">Adherence</span>
+      <a class="button" href="mailto:info.adherencehq@gmail.com">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <h1>Prove your code follows your compliance policies.</h1>
+      <p class="lead">Spend audit prep reviewing evidence, not searching for it. When code or policy changes, you find out before your auditor does.</p>
+      <a class="button" href="mailto:info.adherencehq@gmail.com">Email us</a>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <h2>The problem</h2>
+        <p>Compliance teams write the policies. Engineers write the code that is supposed to follow them. During an audit, someone has to find an example in the code for each requirement and document it with screenshots and notes. This takes weeks.</p>
+        <p>When the policy or the code changes after the audit, that documentation is out of date, and nobody is told.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>How it works</h2>
+        <p>Adherence matches each requirement in your policies to the code that implements it. Your team reviews the matches, and you export a signed evidence pack for your auditors.</p>
+        <div class="steps">
+          <div class="card">
+            <h3>Upload your policies</h3>
+            <p class="muted">Adherence splits each document into individual requirements. When you upload a new version, it shows what changed.</p>
+          </div>
+          <div class="card">
+            <h3>Connect your code</h3>
+            <p class="muted">An engineer installs our GitHub app and adds one file to your repository. The analysis runs in your own build system.</p>
+          </div>
+          <div class="card">
+            <h3>Review the matches</h3>
+            <p class="muted">For each requirement, Adherence shows the code that implements it and whether it meets the requirement. A reviewer confirms or rejects each match.</p>
+          </div>
+          <div class="card">
+            <h3>Sign and export</h3>
+            <p class="muted">The person responsible signs off. The evidence pack lists every requirement, its status, who reviewed and signed it, and links to the code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Details</h2>
+        <ul class="plain">
+          <li><strong>A person reviews every result.</strong> Nothing goes into the evidence pack until someone confirms it, including requirements with no matching code.</li>
+          <li><strong>The pack shows gaps.</strong> It lists requirements with no matching code, and policy statements we skipped because they don't require anything, such as "the company may..."</li>
+          <li><strong>Changes trigger a new review.</strong> If the code or the policy behind a confirmed match changes, the match goes back to the review queue.</li>
+          <li><strong>Records can't be edited.</strong> Every review, correction and signature is kept as it happened.</li>
+          <li><strong>We don't store your code.</strong> Adherence reads code when it needs to and then discards it. The evidence pack links to your code instead of copying it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Who it's for</h2>
+        <p>Compliance teams at payment companies. We're starting with the requirements for onboarding and verifying business customers.</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="wrap">
+        <h2>Have an audit coming up?</h2>
+        <p class="muted">Email us about your policies and your timeline.</p>
+        <a class="button" href="mailto:info.adherencehq@gmail.com">Email us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Adherence</div>
+  </footer>
+</body>
+</html>
